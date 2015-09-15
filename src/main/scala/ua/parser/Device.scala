@@ -29,7 +29,7 @@ object Device {
 
             ).trim
           } else replacement
-        }.orElse(Option(matchedGroups.group(1))).map(Device(_))
+        }.orElse(if (matchedGroups.groupCount > 0) Option(matchedGroups.group(1)) else Option("")).map(Device(_))
       }
     }
   }
